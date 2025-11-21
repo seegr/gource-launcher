@@ -238,10 +238,11 @@ def get_gource_settings(project_name, use_defaults=True):
     if not use_defaults:
         # Rychlost
         speed = inquirer.number(
-            message="Rychlost (seconds-per-day):",
-            default=2,
-            min_allowed=1,
-            max_allowed=100,
+            message="Rychlost (seconds-per-day, např. 0.5 = rychlejší):",
+            default=2.0,
+            float_allowed=True,
+            min_allowed=0.1,
+            max_allowed=100.0,
         ).execute()
         settings['seconds_per_day'] = speed
 
