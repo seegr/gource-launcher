@@ -1,0 +1,18 @@
+[tool.poetry]
+name = "gource-launcher"
+version = "0.1.0"
+description = "Interactive gource launcher with Google Fonts and GitHub integration"
+authors = ["Monty"]
+
+[tool.poetry.dependencies]
+python = "^3.10"
+requests = "^2.31"
+python-dotenv = "^1.0"
+InquirerPy = "^0.3"
+
+[tool.poetry.scripts]
+gource-launcher = "app:main"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
