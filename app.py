@@ -332,7 +332,10 @@ def run_gource(project_path, settings):
     print("💡 Hinty: [D] složky | [F] soubory | [U] uživatelé | [Space] pauza | [Q] konec\n")
 
     try:
-        subprocess.run(cmd)
+        if sys.platform == 'win32':
+            subprocess.run(subprocess.list2cmdline(cmd), shell=True)
+        else:
+            subprocess.run(cmd)
     except FileNotFoundError:
         print("❌ Gource není nainstalovaný! Nainstaluj ho pomocí: brew install gource")
     except KeyboardInterrupt:
